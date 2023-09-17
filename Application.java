@@ -1,50 +1,49 @@
-import java.util.LinkedList;
-import java.util.Queue;
-
-/** Class with an interface that allows the user
- *  to manipulate the queue. 
+/** Driver class that allows the user to manipulate a queue. 
+ *  @author Danny Cannon
  */
+import java.util.*;
 public class Application {
 
 	public static void main(String[] args) {
 		
 		/** Creating queue. */
-		Queue<String> palace = new LinkedList<String>();
+		Queue<String> palace = new Queue<String>();
 		
 		/** Customers already in the queue. */
-		palace.add("Bill");
-		palace.add("Alice");
-		palace.add("Bob");
+		palace.enqueue("Bill");
+		palace.enqueue("Alice");
+		palace.enqueue("Bob");
+		palace.printQueue();
 		
-		//A customer is served
-		System.out.println(palace.remove());
-		System.out.println(palace);
+		/** A customer is served. */
+		System.out.println(palace.dequeue() + " was removed.");
+		palace.printQueue();
 		
-		//Jane arrives
-		System.out.println(palace.add("Jane"));
-		System.out.println(palace);
+		/** Jane arrives. */
+		palace.enqueue("Jane");
+		palace.printQueue();
+		
+		/** Hamad arrives. */
+		palace.enqueue("Hamad");
+		palace.printQueue();
 
-		//Hamad arrives
-		System.out.println(palace.add("Hamad"));
-		System.out.println(palace);
+		/** Two customers are served. */
+		System.out.println(palace.dequeue() + " was removed.");
+		palace.printQueue();
+		System.out.println(palace.dequeue() + " was removed.");
+		palace.printQueue();
 
-		//Two customers are served
-		System.out.println(palace.remove());
-		System.out.println(palace);
-		System.out.println(palace.remove());
-		System.out.println(palace);
+		/** Jim arrives. */
+		palace.enqueue("Jim");
+		palace.printQueue();
 
-		//Jim arrives
-		System.out.println(palace.add("Jim"));
-		System.out.println(palace);
+		/** Another customer is served. */
+		System.out.println(palace.dequeue() + " was removed.");
+		palace.printQueue();
 
-		//Another customer is served
-		System.out.println(palace.remove());
-		System.out.println(palace);
-
-		//Another customer is served
-		System.out.println(palace.remove());
-		System.out.println(palace);
+		/** Another customer is served. */
+		System.out.println(palace.dequeue() + " was removed.");
+		palace.printQueue();
 
 	}//end main
 }//end class
